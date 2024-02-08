@@ -1,4 +1,6 @@
+
 const mongoose = require('mongoose');
+const Playlist = require('../../playlist/model/Playlist')
 
 const userSchema = new mongoose.Schema({
     firstName: {
@@ -28,4 +30,4 @@ const userSchema = new mongoose.Schema({
 })
 
 
-module.exports = mongoose.model('user', userSchema)
+module.exports = mongoose.model('User', userSchema)

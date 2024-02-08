@@ -7,6 +7,8 @@ const cors = require('cors');
 
 const userRouter = require('./routes/user/userRouter')
 
+const playlistRouter = require('./routes/playlist/playlistRouter')
+
 
 
 const app = express();
@@ -21,5 +23,6 @@ app.use(cors())
 
 
 app.use('/api/user', userRouter)
+app.use('/api/playlist', playlistRouter)
 
 module.exports = app
