@@ -18,6 +18,12 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String
+    },
+    favoriteAlbums: {
+        type: Array
+    },
+    favoriteSongs: {
+        type: Array
     }
 })
 

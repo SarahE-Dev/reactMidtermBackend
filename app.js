@@ -3,7 +3,7 @@ const logger = require('morgan');
 const path = require('path');
 const cors = require('cors');
 
-const spotifyRouter = require('./routes/spotify/spotifyRouter')
+
 
 const userRouter = require('./routes/user/userRouter')
 
@@ -18,7 +18,7 @@ app.use(express.json());
 
 app.use(cors())
 
-app.use('/spotify', spotifyRouter)
+
 
 app.use('/api/user', userRouter)
 
