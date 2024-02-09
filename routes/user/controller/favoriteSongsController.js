@@ -27,5 +27,19 @@ async function deleteAllFavoriteSongs(req, res){
     }
 }
 
+async function checkIfSongIsFavorite(req, res){
+    try {
+        const found = await User.findOne({username: req.params.username}, {favoriteSongs: {$elemMatch: {
+            songID: req.params.songID
+        }}} )
+        if(found.favoriteSongs.length > 0){
+        res.json({message: 'success', payload: found})}else{
+            res.json({message: 'not found'})
+        }
+    } catch (error) {
+        res.status(500).json({message: 'error', error: error.message})
+    }
+}
 
-module.exports = {addSongToFavorites, removeSongFromFavorites, deleteAllFavoriteSongs}
+
+module.exports = {addSongToFavorites, removeSongFromFavorites, deleteAllFavoriteSongs, checkIfSongIsFavorite}
