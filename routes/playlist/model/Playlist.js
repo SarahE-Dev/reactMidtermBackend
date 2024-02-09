@@ -9,9 +9,8 @@ const playlistSchema = new mongoose.Schema({
     songs: {
         type: Array
     },
-    _user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+    username: {
+        type: String
     }
     
 })

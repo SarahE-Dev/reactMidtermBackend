@@ -71,6 +71,7 @@ async function getUserByID(req, res){
             payload: "Can not find user"
           })
        }else{
+        foundUser.populate('playlists')
         res.json({message: 'success', payload: foundUser})
        }
     } catch (error) {

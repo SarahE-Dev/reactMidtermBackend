@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema({
     },
     favoriteSongs: {
         type: Array
-    }
+    },
 })
 
 
