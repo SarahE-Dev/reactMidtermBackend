@@ -24,7 +24,7 @@ checkIsStrongPassword, signUp)
 router.post('/sign-in', 
 checkIsUndefinedFunction, checkIsEmptyFunction, signIn)
 
-router.get('/get-user-by-id/:id', checkJwtToken, getUserByID)
+router.get('/get-user-by-id/:id', getUserByID)
 
 router.put('/update-user/:id', checkJwtToken, updateUserByID)
 
