@@ -51,7 +51,7 @@ async function signIn(req, res, next){
                 let passwordMatch = await bcrypt.compare(password, foundUser.password)
                 if(passwordMatch){
                     let jwtToken = jwt.sign({username: foundUser.username, email: foundUser.email, id: foundUser._id,
-                    firstName: foundUser.firstName}, process.env.JWT_TOKEN_KEY, {expiresIn: '24h'})
+                    firstName: foundUser.firstName, lastName: foundUser.lastName}, process.env.JWT_TOKEN_KEY, {expiresIn: '24h'})
                     res.json({jwt: jwtToken})
                 }else{
                     res.json({message: "Please check username and password."})
