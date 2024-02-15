@@ -22,7 +22,7 @@ async function getUserPlaylists(req, res){
 
 async function addSongToPlaylist(req, res){
     try {
-        const updatedPlaylist = await Playlist.findByIdAndUpdate({_id: req.params.id}, {$push: {songs: req.body}}, {new: true} )
+        const updatedPlaylist = await Playlist.findByIdAndUpdate({_id: req.params.id}, {$addToSet: {songs: req.body}}, {new: true} )
         res.json({payload: updatedPlaylist})
     } catch (error) {
         res.status(500).json({message: 'error', error: error.message})
