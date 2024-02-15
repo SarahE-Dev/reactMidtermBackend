@@ -5,7 +5,7 @@ const app = require('./app')
 
 
 mongoose
-    .connect('mongodb://127.0.0.1:27017/music-app-api')
+    .connect(`mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@musicapi.a9fj9ye.mongodb.net/?retryWrites=true&w=majority`)
     .then(()=>{
         app.listen(3000, ()=>{
             console.log('Server started on Port: 3000');
