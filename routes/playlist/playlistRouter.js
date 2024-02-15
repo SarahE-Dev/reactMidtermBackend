@@ -4,15 +4,17 @@ const router = express.Router()
 const {createPlaylist, getUserPlaylists, addSongToPlaylist, deleteSongFromPlaylist,
 deletePlaylist} = require('./controller/playlistController')
 
-router.post('/create-playlist', createPlaylist)
+const {checkJwtToken} = require('../utils/jwtMiddleware')
 
-router.get('/get-user-playlists/:username', getUserPlaylists)
+router.post('/create-playlist',checkJwtToken, createPlaylist)
 
-router.put('/add-song/:id', addSongToPlaylist)
+router.get('/get-user-playlists/:username', checkJwtToken, getUserPlaylists)
 
-router.put('/delete-song/:id/:songID', deleteSongFromPlaylist)
+router.put('/add-song/:id', checkJwtToken, addSongToPlaylist)
 
-router.delete('/delete-playlist/:id', deletePlaylist)
+router.put('/delete-song/:id/:songID', checkJwtToken, deleteSongFromPlaylist)
+
+router.delete('/delete-playlist/:id', checkJwtToken, deletePlaylist)
 
 
 module.exports = router

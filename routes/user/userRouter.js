@@ -24,25 +24,25 @@ checkIsStrongPassword, signUp)
 router.post('/sign-in', 
 checkIsUndefinedFunction, checkIsEmptyFunction, signIn)
 
-router.get('/get-user-by-id/:id', getUserByID)
+router.get('/get-user-by-id/:id',checkJwtToken, getUserByID)
 
 router.put('/update-user/:id', checkJwtToken, updateUserByID)
 
-router.put('/add-favorite-song/:username', addSongToFavorites)
+router.put('/add-favorite-song/:username', checkJwtToken, addSongToFavorites)
 
-router.put('/remove-favorite-song/:username', removeSongFromFavorites)
+router.put('/remove-favorite-song/:username',checkJwtToken, removeSongFromFavorites)
 
-router.put('/add-favorite-album/:username', addAlbumToFavorites)
+router.put('/add-favorite-album/:username', checkJwtToken, addAlbumToFavorites)
 
-router.put('/remove-favorite-album/:username', removeAlbumFromFavorites)
+router.put('/remove-favorite-album/:username',checkJwtToken, removeAlbumFromFavorites)
 
-router.put('/delete-all-favorite-albums/:username', deleteAllFavoriteAlbums)
+router.put('/delete-all-favorite-albums/:username',checkJwtToken, deleteAllFavoriteAlbums)
 
-router.put('/delete-all-favorite-songs/:username', deleteAllFavoriteSongs)
+router.put('/delete-all-favorite-songs/:username', checkJwtToken, deleteAllFavoriteSongs)
 
-router.get('/check-favorite-albums/:username/:albumID', checkIfAlbumIsFavorite)
+router.get('/check-favorite-albums/:username/:albumID', checkJwtToken, checkIfAlbumIsFavorite)
 
-router.get('/check-favorite-songs/:username/:songID', checkIfSongIsFavorite)
+router.get('/check-favorite-songs/:username/:songID', checkJwtToken, checkIfSongIsFavorite)
 
 
 module.exports = router
